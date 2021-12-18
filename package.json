@@ -1,5 +1,5 @@
 {
-  "name": "use-focus-trap",
+  "name": "react-use-focus-trap",
   "version": "1.0.0",
   "description": "A react hook to trap the focus within a reference",
   "main": "src/useFocusTrap.js",
