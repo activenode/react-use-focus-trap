@@ -1,0 +1,25 @@
+{
+  "name": "use-focus-trap",
+  "version": "1.0.0",
+  "description": "A react hook to trap the focus within a reference",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/activenode/use-focus-trap.git"
+  },
+  "author": "David Lorenz <info@activenode.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/activenode/use-focus-trap/issues"
+  },
+  "homepage": "https://github.com/activenode/use-focus-trap#readme",
+  "peerDependencies": {
+    "react": "^17.0.0"
+  },
+  "devDependencies": {
+    "react": "^17.0.2"
+  }
+}
