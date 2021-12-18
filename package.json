@@ -2,7 +2,7 @@
   "name": "use-focus-trap",
   "version": "1.0.0",
   "description": "A react hook to trap the focus within a reference",
-  "main": "src/index.js",
+  "main": "src/useFocusTrap.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
