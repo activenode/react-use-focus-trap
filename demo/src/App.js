@@ -4,7 +4,7 @@ import "./style.css";
 import { useFocusTrap } from "react-use-focus-trap";
 
 export default function App() {
-  // const [trapRef] = useFocusTrap();
+  const [trapRef] = useFocusTrap();
   return (
     <div>
       <section>
@@ -41,7 +41,7 @@ export default function App() {
           mauris.
         </p>
       </section>
-      <div class="modal">
+      <div class="modal" ref={trapRef}>
         <form>
           <input type="text" />
           <input type="number" />
