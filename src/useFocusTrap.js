@@ -1,17 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-
-function convertToIntOrFallback(n, fallback) {
-  try {
-    const parsed = parseInt(n);
-    if (typeof n === "number" && !isNaN(n) && `${parsed}` === `${n}`) {
-      return parsed;
-    }
-
-    return fallback;
-  } catch {
-    return fallback;
-  }
-}
+import { convertToIntOrFallback } from "./util.js";
 
 const focusableElementsSelector =
   "a[href], area[href], input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
@@ -78,14 +66,8 @@ export function useFocusTrap() {
         ); // caching this is NOT a good idea in dynamic applications - so don't!
         // now we need to sort it by tabIndex, highest first
         focusableElems.sort((a, b) => {
-          const tabIndexA = convertToIntOrFallback(
-            a.getAttribute("tabindex"),
-            0
-          );
-          const tabIndexB = convertToIntOrFallback(
-            b.getAttribute("tabindex"),
-            0
-          );
+          const tabIndexA = convertToIntOrFallback(a.getAttribute("tabindex"));
+          const tabIndexB = convertToIntOrFallback(b.getAttribute("tabindex"));
 
           return tabIndexA - tabIndexB;
         });
