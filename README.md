@@ -21,18 +21,34 @@ npm i react-use-focus-trap
 # Usage
 
 ```jsx
-import React from 'react';
-import { useFocusTrap } from 'react-use-focus-trap';
+import React from "react";
+import { useFocusTrap } from "react-use-focus-trap";
 
 export function NiceModal() {
-    const [ trapRef ] = useFocusTrap();
+  const [trapRef] = useFocusTrap();
 
-    return <div class="my-weird-modal" ref={trapRef}>Foobar</div>;
+  return (
+    <div class="my-weird-modal" ref={trapRef}>
+      Foobar
+    </div>
+  );
 }
 ```
 
+## Developing
 
+There is a demo application for easy debugging included. To start developing do this:
 
+```shell
+npm install
+npm run build
+npm link
+cd demo
+npm install
+npm start
+```
+
+This opens up a dev-server with a silly modal.
 
 An extremely helpful React Hook to trap the focusable elements / Hello Modals! Hello a11y!
 Any improvement / feedback is ALWAYS appreciated!
