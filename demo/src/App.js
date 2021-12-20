@@ -41,11 +41,11 @@ export default function App() {
           mauris.
         </p>
       </section>
-      <div class="modal" ref={trapRef}>
+      <div className="modal" ref={trapRef}>
         <form>
-          <input type="text" />
-          <input type="number" />
-          <button>Foobar</button>
+          <input tabIndex="2" type="text" />
+          <input tabIndex="1" type="number" />
+          <button tabIndex="3">Foobar</button>
         </form>
       </div>
     </div>
