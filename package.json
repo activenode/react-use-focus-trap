@@ -2,6 +2,15 @@
   "name": "react-use-focus-trap",
   "version": "1.0.1",
   "description": "A react hook to trap the focus within a reference",
+  "keywords": [
+    "react",
+    "modal",
+    "focus",
+    "trap",
+    "focus-trap",
+    "a11y",
+    "accessibility"
+  ],
   "main": "dist/useFocusTrap.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

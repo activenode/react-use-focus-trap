@@ -1,24 +1,27 @@
-# react-use-focus-trap
+# React Focus Trap (`react-use-focus-trap`)
 
-## Everytime when people implement Modals...
+An extremely helpful React Hook to trap the focusable elements.
 
-...People forget that pro users as well as users that are permanently or temporarily restricted will use other inputs than the mouse - e.g. a keyboard.
+_Improvement or feedback of any kind is **always** appreciated!_
+
+## The Issue with Modals
+
+When implementing Modals, people tend to forget that pro-users and users that are permanently or temporarily restricted will use other inputs than the mouse - e.g., a keyboard.
 
 ![Sad Face](https://media.giphy.com/media/3otWpthJPjNfD1xuh2/giphy.gif)
 
-Now tabbing through a modal most often leads to the fact that the focus goes below the Modal and then good luck finding your way back. **A horror show.**
-
-That is why you can simply add this hook and you should be good of with the most basic thing you can do: Locking into the modal while it is open.
+Now tabbing through a modal most often leads to the focus going z- or y-wise below the Modal. Good luck finding your way back then! It's a **horror show**.
+That's the point where this library comes into play. Add this hook, and lock ("trap") the focus into the modal.
 
 ![Happy Face](https://media.giphy.com/media/HTLHGEXpZ3zhuqME3q/giphy.gif)
 
 ## Installation
 
 ```shell
-npm i react-use-focus-trap
+npm install react-use-focus-trap
 ```
 
-# Usage
+## Usage
 
 ```jsx
 import React from "react";
@@ -37,7 +40,7 @@ export function NiceModal() {
 
 ## Developing
 
-There is a demo application for easy debugging included. To start developing do this:
+There is a demo application for easy debugging included. To start developing, simply execute these commands:
 
 ```shell
 npm install
@@ -48,7 +51,4 @@ npm install
 npm start
 ```
 
-This opens up a dev-server with a silly modal.
-
-An extremely helpful React Hook to trap the focusable elements / Hello Modals! Hello a11y!
-Any improvement / feedback is ALWAYS appreciated!
+This opens up a dev-server with a silly modal to test your code in.
