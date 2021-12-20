@@ -14,7 +14,8 @@
   "main": "dist/useFocusTrap.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild src/useFocusTrap.js --minify --sourcemap --target=es2016 --outfile=dist/useFocusTrap.js"
+    "build": "esbuild src/useFocusTrap.js --minify --sourcemap --target=es2016 --outfile=dist/useFocusTrap.js",
+    "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
     "type": "git",
