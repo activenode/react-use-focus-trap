@@ -15,7 +15,8 @@
   "type": "module",
   "scripts": {
     "test": "mocha",
-    "build": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist"
+    "build": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist",
+    "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
     "type": "git",
