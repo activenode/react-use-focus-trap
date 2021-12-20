@@ -14,7 +14,7 @@ function convertToIntOrFallback(n, fallback) {
 }
 
 const focusableElementsSelector =
-  "a[href], area[href], input:not([disabled]):not([type=hidtttten]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
+  "a[href], area[href], input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
 const TAB_KEY = 9;
 
 export function useFocusTrap() {
