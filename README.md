@@ -1,6 +1,6 @@
 # React Focus Trap (`react-use-focus-trap`)
 
-An extremely helpful React Hook to trap the focusable elements.
+An extremely helpful React Hook to trap the focusable elements. The underlying Guideline: https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html
 
 _Improvement or feedback of any kind is **always** appreciated!_
 
