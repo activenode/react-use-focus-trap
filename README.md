@@ -1,5 +1,7 @@
 # React Focus Trap (`react-use-focus-trap`)
 
+[![ci](https://github.com/activenode/react-use-focus-trap/actions/workflows/ci.yml/badge.svg)](https://github.com/activenode/react-use-focus-trap/actions/workflows/ci.yml)
+
 An extremely helpful React Hook to trap the focusable elements. 
 
 (The underlying Guideline: https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
