@@ -1,4 +1,8 @@
-import { convertToIntOrFallback, sortByTabIndex } from "../src/util.js";
+import {
+  convertToIntOrFallback,
+  getTabIndexOfNode,
+  sortByTabIndex,
+} from "../src/util.js";
 import assert from "assert";
 import { JSDOM } from "jsdom";
 
@@ -84,6 +88,30 @@ describe("Utility functions", function () {
         tabIndexedNodes.item(3),
         tabIndexedNodes.item(6),
       ]);
+    });
+  });
+
+  describe("#getTabIndexOfNode", function () {
+    let tabIndexedNodes;
+    beforeEach(function () {
+      const dom = new JSDOM(
+        `<html>
+           <body>
+             <button class="to-test" id="one" tabindex="2">1</button>
+             <button class="to-test" id="three" tabindex="-1">3</button>
+             <button class="to-test" id="four" tabindex="0">4</button>
+             <button class="to-test">5</button>
+             <span class="to-test">foobar</span>
+           </body>
+         </html>`
+      );
+      tabIndexedNodes = dom.window.document.querySelectorAll(".to-test");
+    });
+    it("should sort by tabindex value ascending", function () {
+      const tabIndexes = Array.from(tabIndexedNodes).map((node) =>
+        getTabIndexOfNode(node)
+      );
+      assert.deepEqual(tabIndexes, [2, -1, 0, 0, 0]);
     });
   });
 });

@@ -35,6 +35,6 @@ function sanitizeTabIndexInput(tabIndex, highestPositiveTabIndex) {
   return tabIndex === 0 ? highestPositiveTabIndex + 1 : tabIndex;
 }
 
-function getTabIndexOfNode(targetNode) {
+export function getTabIndexOfNode(targetNode) {
   return convertToIntOrFallback(targetNode.getAttribute("tabindex"));
 }

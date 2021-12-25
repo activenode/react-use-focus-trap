@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from "react";
-import { sortByTabIndex } from "./util.js";
+import { getTabIndexOfNode, sortByTabIndex } from "./util.js";
 
 const focusableElementsSelector =
   "a[href], area[href], input:not([disabled]):not([type=hidden]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]";
@@ -64,7 +64,7 @@ export function useFocusTrap() {
         let focusableElems = Array.from(
           trapRefElem.querySelectorAll(focusableElementsSelector)
         ).filter(
-          (focusableElement) => focusableElement.getAttribute("tabindex") >= 0
+          (focusableElement) => getTabIndexOfNode(focusableElement) >= 0
         ); // caching this is NOT a good idea in dynamic applications - so don't!
         // now we need to sort it by tabIndex, highest first
         focusableElems = focusableElems.sort(sortByTabIndex);
