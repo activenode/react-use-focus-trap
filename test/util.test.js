@@ -107,7 +107,7 @@ describe("Utility functions", function () {
       );
       tabIndexedNodes = dom.window.document.querySelectorAll(".to-test");
     });
-    it("should sort by tabindex value ascending", function () {
+    it("should get the tab index as numbers of nodes", function () {
       const tabIndexes = Array.from(tabIndexedNodes).map((node) =>
         getTabIndexOfNode(node)
       );
