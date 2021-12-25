@@ -43,9 +43,15 @@ export default function App() {
       </section>
       <div className="modal" ref={trapRef}>
         <form>
-          <input tabIndex="2" type="text" />
-          <input tabIndex="1" type="number" />
-          <button tabIndex="3">Foobar</button>
+          <input tabIndex="2" type="text" placeholder="2" />
+          <input tabIndex="0" type="number" placeholder="0" />
+          <input tabIndex="-1" type="number" placeholder="-1" />
+          <input tabIndex="0" type="number" placeholder="0" />
+          <input tabIndex="-1" type="number" placeholder="-1" />
+          <input tabIndex="1" type="number" placeholder="1" />
+          <button tabIndex="3" placeholder="3">
+            Foobar
+          </button>
         </form>
       </div>
     </div>
