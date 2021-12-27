@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 import { useFocusTrap } from "react-use-focus-trap";
 
 export default function App() {
   const [trapRef] = useFocusTrap();
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleModal() {
+    setIsOpen(!isOpen);
+  }
   return (
     <div>
       <section>
         <form>
           <input type="text" />
-          <input type="number" />
+          <input tabIndex="2" type="number" />
           <button>Foobar</button>
         </form>
         <p>
@@ -41,19 +46,22 @@ export default function App() {
           mauris.
         </p>
       </section>
-      <div className="modal" ref={trapRef}>
-        <form>
-          <input tabIndex="2" type="text" placeholder="2" />
-          <input tabIndex="0" type="number" placeholder="0" />
-          <input tabIndex="-1" type="number" placeholder="-1" />
-          <input tabIndex="0" type="number" placeholder="0" />
-          <input tabIndex="-1" type="number" placeholder="-1" />
-          <input tabIndex="1" type="number" placeholder="1" />
-          <button tabIndex="3" placeholder="3">
-            Foobar
-          </button>
-        </form>
-      </div>
+      <button onClick={toggleModal}>Open Modal</button>
+      {isOpen && (
+        <div className="modal" ref={trapRef}>
+          <form>
+            <input tabIndex="2" type="text" placeholder="2" />
+            <input tabIndex="0" type="number" placeholder="0" />
+            <input tabIndex="-1" type="number" placeholder="-1" />
+            <input tabIndex="0" type="number" placeholder="0" />
+            <input tabIndex="-1" type="number" placeholder="-1" />
+            <input tabIndex="1" type="number" placeholder="1" />
+            <button onClick={toggleModal} tabIndex="3" placeholder="3">
+              Close Modal
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
