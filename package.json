@@ -16,7 +16,6 @@
   "scripts": {
     "test": "ts-mocha -p test/tsconfig.json test/**/*.test.ts",
     "build": "tsc --project tsconfig.json",
-    "build:demo": "cd demo && npm install && npm run build",
     "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
