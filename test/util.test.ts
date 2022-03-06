@@ -2,7 +2,7 @@ import {
   convertToIntOrFallback,
   getTabIndexOfNode,
   sortByTabIndex,
-} from "../src/util.js";
+} from "../src/util";
 import assert from "assert";
 import { JSDOM } from "jsdom";
 
