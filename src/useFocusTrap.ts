@@ -6,27 +6,28 @@ const focusableElementsSelector =
 const TAB_KEY = 9;
 
 export function useFocusTrap() {
-  const trapRef = useRef(null);
+  const trapRef = useRef<HTMLElement>(null);
 
   const selectNextFocusableElem = useCallback(
     (
-      sortedFocusableElems,
-      currentIndex,
+      sortedFocusableElems: HTMLElement[],
+      currentIndex?: number,
       shiftKeyPressed = false,
       skipCount = 0
-    ) => {
+    ): void => {
       if (skipCount > sortedFocusableElems.length) {
         // this means that it ran through all of elements but non was properly focusable
         // hence we stop it to avoid running in an infinite loop
-        return false;
+        return;
       }
 
       const backwards = !!shiftKeyPressed;
       const maxIndex = sortedFocusableElems.length - 1;
 
       if (!currentIndex) {
+        const activeElement: HTMLElement = document.activeElement as HTMLElement; // can be null, which is okay
         currentIndex =
-          sortedFocusableElems.indexOf(document.activeElement) ?? 0;
+          sortedFocusableElems.indexOf(activeElement) ?? 0;
       }
 
       let nextIndex = backwards ? currentIndex - 1 : currentIndex + 1;
@@ -51,19 +52,21 @@ export function useFocusTrap() {
           skipCount + 1
         );
       }
-    }
+    }, []
   );
 
   // defining the trap function first
-  const trapper = useCallback((evt) => {
+  const trapper = useCallback((evt: KeyboardEvent) => {
     const trapRefElem = trapRef.current;
+
     if (trapRefElem !== null) {
       if (evt.which === TAB_KEY || evt.key === "Tab") {
         evt.preventDefault();
+
         const shiftKeyPressed = !!evt.shiftKey;
-        let focusableElems = Array.from(
+        let focusableElems = (Array.from(
           trapRefElem.querySelectorAll(focusableElementsSelector)
-        ).filter(
+        ) as Array<HTMLElement>).filter(
           (focusableElement) => getTabIndexOfNode(focusableElement) >= 0
         ); // caching this is NOT a good idea in dynamic applications - so don't!
         // now we need to sort it by tabIndex, highest first

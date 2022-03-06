@@ -15,7 +15,8 @@
   "type": "module",
   "scripts": {
     "test": "mocha -r jsdom-global/register",
-    "build": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist",
+    "build": "tsc --project tsconfig.json",
+    "build:demo": "cd demo && npm install && npm run build",
     "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
@@ -32,6 +33,7 @@
     "react": "^17.0.0"
   },
   "devDependencies": {
+    "@types/react": "^17.0.39",
     "esbuild": "^0.14.5",
     "jsdom": "^19.0.0",
     "jsdom-global": "^3.0.2",

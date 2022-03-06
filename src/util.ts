@@ -1,9 +1,9 @@
-export function convertToIntOrFallback(stringToConvert) {
+export function convertToIntOrFallback(stringToConvert: string) {
   const parsed = parseInt(stringToConvert);
   return parsed ? parsed : 0;
 }
 
-export function sortByTabIndex(firstNode, secondNode) {
+export function sortByTabIndex(firstNode: HTMLElement, secondNode: HTMLElement) {
   const tabIndexes = [firstNode, secondNode].map((node) =>
     getTabIndexOfNode(node)
   );
@@ -25,7 +25,7 @@ export function sortByTabIndex(firstNode, secondNode) {
  * @returns Tha sanitized tab index
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex} for further information on the tabindex and its order
  */
-function sanitizeTabIndexInput(tabIndex, highestPositiveTabIndex) {
+function sanitizeTabIndexInput(tabIndex: number, highestPositiveTabIndex: number) {
   if (tabIndex < 0) {
     throw new Error(
       `Unable to sort given input. A negative value is not part of the tab order: ${tabIndex}`
@@ -35,6 +35,6 @@ function sanitizeTabIndexInput(tabIndex, highestPositiveTabIndex) {
   return tabIndex === 0 ? highestPositiveTabIndex + 1 : tabIndex;
 }
 
-export function getTabIndexOfNode(targetNode) {
-  return convertToIntOrFallback(targetNode.getAttribute("tabindex"));
+export function getTabIndexOfNode(targetNode: HTMLElement) {
+  return convertToIntOrFallback(targetNode.getAttribute("tabindex") || '');
 }
