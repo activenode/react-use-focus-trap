@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "module": "es2015",
+    "module": "es2020",
     "target": "es2017",
     "moduleResolution": "node",
     "outDir": "./dist",
@@ -16,5 +16,5 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/useFocusTrap.ts"]
+  "include": ["src/"]
 }
