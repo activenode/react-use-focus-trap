@@ -12,6 +12,7 @@
     "accessibility"
   ],
   "source": "src/useFocusTrap.js",
+  "type": "module",
   "targets": {
     "commonjs": {
       "includeNodeModules": {
