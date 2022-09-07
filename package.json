@@ -14,8 +14,8 @@
   "main": "src/useFocusTrap.js",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js"
+      "require": "./dist/cjs/useFocusTrap.js",
+      "import": "./dist/esm/useFocusTrap.js"
     }
   },
   "type": "module",
