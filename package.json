@@ -1,6 +1,6 @@
 {
   "name": "react-use-focus-trap",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "A react hook to trap the focus within a reference",
   "keywords": [
     "react",
@@ -12,7 +12,6 @@
     "accessibility"
   ],
   "source": "src/useFocusTrap.js",
-  "type": "module",
   "targets": {
     "commonjs": {
       "includeNodeModules": {
@@ -29,15 +28,18 @@
       "isLibrary": true
     }
   },
+  "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/commonjs/useFocusTrap.js",
-      "import": "./dist/esm/useFocusTrap.js"
+      "require": "./dist/commonjs/useFocusTrap.cjs",
+      "import": "./dist/esm/useFocusTrap.mjs"
     }
   },
   "scripts": {
     "test": "mocha -r jsdom-global/register",
-    "build": "parcel build",
+    "build": "parcel build && npm run fixFileNamesCjs && npm run fixFileNamesMjs",
+    "fixFileNamesCjs": "cd dist/commonjs && mv useFocusTrap.js useFocusTrap.cjs && mv  useFocusTrap.js.map  useFocusTrap.cjs.map",
+    "fixFileNamesMjs": "cd dist/esm && mv useFocusTrap.js useFocusTrap.mjs && mv  useFocusTrap.js.map  useFocusTrap.mjs.map",
     "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
