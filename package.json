@@ -11,11 +11,19 @@
     "a11y",
     "accessibility"
   ],
-  "main": "dist/useFocusTrap.js",
+  "main": "src/useFocusTrap.js",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
+    }
+  },
   "type": "module",
   "scripts": {
     "test": "mocha -r jsdom-global/register",
-    "build": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist",
+    "build:esm": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/esm --format=esm",
+    "build:cjs": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/cjs --format=cjs",
+    "build": "npm run build:esm && npm run build:cjs",
     "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
