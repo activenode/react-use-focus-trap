@@ -1,6 +1,6 @@
 {
   "name": "react-use-focus-trap",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A react hook to trap the focus within a reference",
   "keywords": [
     "react",
@@ -21,8 +21,8 @@
   "type": "module",
   "scripts": {
     "test": "mocha -r jsdom-global/register",
-    "build:esm": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/esm --format=esm",
-    "build:cjs": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/cjs --format=cjs",
+    "build:esm": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/esm --format=esm && mv dist/esm/useFocusTrap.js dist/esm/useFocusTrap.mjs",
+    "build:cjs": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/cjs --format=cjs && mv dist/cjs/useFocusTrap.js dist/cjs/useFocusTrap.cjs",
     "build": "npm run build:esm && npm run build:cjs",
     "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
