@@ -13,8 +13,8 @@
   ],
   "exports": {
     ".": {
-      "require": "./dist/cjs/useFocusTrap.js",
-      "import": "./dist/esm/useFocusTrap.js"
+      "require": "./dist/cjs/useFocusTrap.cjs",
+      "import": "./dist/esm/useFocusTrap.mjs"
     }
   },
   "type": "module",
