@@ -11,18 +11,32 @@
     "a11y",
     "accessibility"
   ],
-  "exports": {
-    ".": {
-      "require": "./dist/cjs/useFocusTrap.cjs",
-      "import": "./dist/esm/useFocusTrap.mjs"
+  "source": "src/useFocusTrap.js",
+  "targets": {
+    "commonjs": {
+      "includeNodeModules": {
+        "react": false
+      },
+      "isLibrary": true,
+      "outputFormat": "commonjs"
+    },
+    "esm": {
+      "includeNodeModules": {
+        "react": false
+      },
+      "outputFormat": "esmodule",
+      "isLibrary": true
     }
   },
-  "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/commonjs/useFocusTrap.js",
+      "import": "./dist/esm/useFocusTrap.js"
+    }
+  },
   "scripts": {
     "test": "mocha -r jsdom-global/register",
-    "build:esm": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/esm --format=esm && mv dist/esm/useFocusTrap.js dist/esm/useFocusTrap.mjs",
-    "build:cjs": "esbuild src/*.js --minify --sourcemap --target=es2016 --outdir=dist/cjs --format=cjs && mv dist/cjs/useFocusTrap.js dist/cjs/useFocusTrap.cjs",
-    "build": "npm run build:esm && npm run build:cjs",
+    "build": "parcel build",
     "run:demo": "npm install && npm run build && npm link && cd demo && npm install && npm start"
   },
   "repository": {
@@ -43,6 +57,7 @@
     "jsdom": "^19.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^9.1.3",
+    "parcel": "^2.7.0",
     "react": "^17.0.2"
   }
 }
